@@ -5,6 +5,8 @@
 // stories
 const goWTF = require('../stories/goWTF');
 const listWork = require('../stories/listWork');
+const listLab = require('../stories/listLab');
+const showBlog = require('../stories/showBlog');
 
 // senders
 const sendText = require('../senders/sendText');
@@ -21,12 +23,12 @@ module.exports = async function receiveQuickReply(id, payload) {
   }
 
   if (payload === 'LAB_PAYLOAD') {
-    await sendText(id, 'This is my lab!');
+    listLab(id);
     return;
   }
 
   if (payload === 'BLOG_PAYLOAD') {
-    await sendText(id, 'This is my blog!');
+    showBlog(id);
     return;
   }
 
