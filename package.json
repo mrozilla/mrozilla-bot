@@ -30,6 +30,9 @@
     "node": "8.6.0"
   },
   "eslintConfig": {
-    "extends": "airbnb-base"
+    "extends": "airbnb-base",
+    "rules": {
+      "max-len": ["error", 80]
+    }
   }
 }
