@@ -30,12 +30,15 @@ module.exports = async function sendTemplate(
             elements:      templateArray.map(templateItem => ({
               title:          templateItem.title,
               image_url:      templateItem.image,
-              subtitle:       templateItem.subtitle,
+              subtitle:       templateItem.tagline,
               default_action: {
-                type:                 'web_url',
-                url:                  templateItem.url,
-                // messenger_extensions: messengerExtensions,
+                type: 'web_url',
+                url:
+                  templateItem.url.substr(1) === '/'
+                    ? `https://mrozilla.cz${templateItem.url}`
+                    : templateItem.url,
                 webview_height_ratio: webViewHeightRatio,
+                // messenger_extensions: messengerExtensions,
                 // fallback_url:         templateItem.url, // TODO is this smart?
               },
               // buttons: [
