@@ -17,13 +17,11 @@ module.exports = async function handlePostback({
 }) {
   if (payload === 'GET_STARTED_PAYLOAD') {
     const firstName = await getFirstName(sender.id);
-    await sendText(sender.id, {
-      text: `Hey, ${firstName}!`,
-    });
-    await sendText(sender.id, {
-      text:
-        'This is a Messenger version of the online home of a digital studio.',
-    });
+    await sendText(sender.id, `Hey, ${firstName}!`);
+    await sendText(
+      sender.id,
+      'This is a Messenger version of the online home of a digital studio.',
+    );
     await sendQuickReplies(sender.id, 'What are you interested in?', [
       { title: 'Work', payload: 'WORK_PAYLOAD' },
       { title: 'Lab', payload: 'LAB_PAYLOAD' },
