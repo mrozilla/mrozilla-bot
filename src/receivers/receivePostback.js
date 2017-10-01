@@ -4,8 +4,9 @@
 
 // components
 const sendText = require('../senders/sendText');
-const sendQuickReplies = require('../senders/sendQuickReplies');
-const getFirstName = require('../helpers/getFirstName');
+
+// stories
+const greetUser = require('../stories/greetUser');
 
 // =============================================================================
 // component
@@ -16,17 +17,18 @@ module.exports = async function handlePostback({
   postback: { payload },
 }) {
   if (payload === 'GET_STARTED_PAYLOAD') {
-    const firstName = await getFirstName(sender.id);
-    await sendText(sender.id, `Hey, ${firstName}!`);
-    await sendText(
-      sender.id,
-      'This is a Messenger version of the online home of a digital studio.',
-    );
-    await sendQuickReplies(sender.id, 'What are you interested in?', [
-      { title: 'Work', payload: 'WORK_PAYLOAD' },
-      { title: 'Lab', payload: 'LAB_PAYLOAD' },
-      { title: 'Blog', payload: 'BLOG_PAYLOAD' },
-      { title: 'About', payload: 'ABOUT_PAYLOAD' },
-    ]);
+    greetUser(sender.id);
+  }
+  if (payload === 'WORK_PAYLOAD') {
+    await sendText(sender.id, 'This is my work!');
+  }
+  if (payload === 'LAB_PAYLOAD') {
+    await sendText(sender.id, 'This is my lab!');
+  }
+  if (payload === 'BLOG_PAYLOAD') {
+    await sendText(sender.id, 'This is my blog!');
+  }
+  if (payload === 'ABOUT_PAYLOAD') {
+    await sendText(sender.id, 'This is my about!');
   }
 };
