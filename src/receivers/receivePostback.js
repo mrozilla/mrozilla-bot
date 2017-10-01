@@ -17,10 +17,10 @@ module.exports = async function handlePostback({
 }) {
   if (payload === 'GET_STARTED_PAYLOAD') {
     const firstName = await getFirstName(sender.id);
-    await sendText(sender, {
+    await sendText(sender.id, {
       text: `Hey, ${firstName}!`,
     });
-    await sendText(sender, {
+    await sendText(sender.id, {
       text:
         'This is a Messenger version of the online home of a digital studio.',
     });
