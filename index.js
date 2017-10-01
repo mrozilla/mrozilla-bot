@@ -7,8 +7,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // messenger
-const handlePostback = require('./src/handlers/handlePostback');
-const handleMessage = require('./src/handlers/handleMessage');
+const receivePostback = require('./src/receivers/receivePostback');
+const receiveMessage = require('./src/receivers/receiveMessage');
 
 // =============================================================================
 // server setup
@@ -48,9 +48,9 @@ app.post('/webhook', (req, res) => {
     req.body.entry.forEach((entry) => {
       entry.messaging.forEach((event) => {
         if (event.postback) {
-          handlePostback(event);
+          receivePostback(event);
         } else if (event.message) {
-          handleMessage(event);
+          receiveMessage(event);
         }
       });
     });
