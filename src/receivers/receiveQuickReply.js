@@ -35,5 +35,7 @@ module.exports = async function receiveQuickReply(id, payload) {
     return;
   }
 
+  // TODO add filtering
+
   goWTF(id, 'choice');
 };

@@ -11,9 +11,8 @@ const request = require('request-promise-native');
 module.exports = async function sendTemplate(
   id,
   templateArray,
-  globalButton,
   templateType = 'generic',
-  messengerExtensions = false,
+  // messengerExtensions = 'false',
   webViewHeightRatio = 'tall',
 ) {
   return request.post({
@@ -35,18 +34,23 @@ module.exports = async function sendTemplate(
               default_action: {
                 type:                 'web_url',
                 url:                  templateItem.url,
-                messenger_extensions: messengerExtensions,
+                // messenger_extensions: messengerExtensions,
                 webview_height_ratio: webViewHeightRatio,
-                fallback_url:         templateItem.url, // TODO is this smart?
+                // fallback_url:         templateItem.url, // TODO is this smart?
               },
+              // buttons: [
+              //   {
+              //     type:  'web_url',
+              //     url:   'https://mrozilla.cz/work',
+              //     title: 'View website',
+              //   },
+              //   {
+              //     type:    'postback',
+              //     title:   'Go back',
+              //     payload: 'BACK_WORK_PAYLOAD',
+              //   },
+              // ], // TODO add multiple buttons?
             })),
-            // buttons: [
-            //   {
-            //     type:  'web_url',
-            //     url:   globalButton.url,
-            //     title: globalButton.text, // TODO add multiple buttons?
-            //   },
-            // ],
           },
         },
       },

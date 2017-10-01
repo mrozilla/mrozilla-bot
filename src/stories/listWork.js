@@ -13,8 +13,5 @@ const sendTemplate = require('../senders/sendTemplate');
 // =============================================================================
 
 module.exports = async function listWork(id) {
-  await sendTemplate(id, content.work, {
-    url:  'https://mrozilla.cz',
-    text: 'View website',
-  }); // TODO add filtering
+  await sendTemplate(id, content.work);
 };
