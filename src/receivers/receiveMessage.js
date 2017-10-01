@@ -17,16 +17,6 @@ module.exports = async function receiveMessage({ message, sender }) {
 
     console.log(`Quick reply payload is: ${message.quick_reply.payload}`);
 
-    if (message.text) {
-      goWTF(sender.id, 'text');
-      return;
-    }
-
-    if (message.attachments) {
-      goWTF(sender.id, 'attachment');
-      return;
-    }
-
     if (message.quick_reply) {
       if (message.quick_reply.payload === 'WORK_PAYLOAD') {
         await sendText(sender.id, 'This is my work!');
@@ -49,6 +39,16 @@ module.exports = async function receiveMessage({ message, sender }) {
       }
 
       goWTF(sender.id, 'choice');
+    }
+
+    if (message.text) {
+      goWTF(sender.id, 'text');
+      return;
+    }
+
+    if (message.attachments) {
+      goWTF(sender.id, 'attachment');
+      return;
     }
 
     goWTF(sender.id);
