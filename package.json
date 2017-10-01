@@ -32,7 +32,13 @@
   "eslintConfig": {
     "extends": "airbnb-base",
     "rules": {
-      "max-len": ["error", 80]
+      "max-len": ["error", 80],
+      "key-spacing": [
+        "warn",
+        {
+          "align": "value"
+        }
+      ]
     }
   }
 }
