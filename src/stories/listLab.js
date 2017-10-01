@@ -8,6 +8,7 @@ const content = require('../content');
 // senders
 const sendText = require('../senders/sendText');
 const sendTemplate = require('../senders/sendTemplate');
+const sendQuickReplies = require('../senders/sendQuickReplies');
 
 // =============================================================================
 // export
@@ -23,4 +24,5 @@ module.exports = async function listLab(id) {
     'Proof-of-concepts, little tools, silly fooling around. Pushing the limits of the canvas (figuratively & literally).',
   );
   await sendTemplate(id, content.lab);
+  await sendQuickReplies(id, 'Wanna see more?', [...content.mainMenu]);
 };
