@@ -34,9 +34,9 @@ module.exports = async function sendTemplate(
               default_action: {
                 type: 'web_url',
                 url:
-                  templateItem.url.substr(1) === '/'
-                    ? `https://mrozilla.cz${templateItem.url}`
-                    : templateItem.url,
+                  templateItem.link.charAt(0) === '/'
+                    ? `https://mrozilla.cz${templateItem.link}`
+                    : templateItem.link,
                 webview_height_ratio: webViewHeightRatio,
                 // messenger_extensions: messengerExtensions,
                 // fallback_url:         templateItem.url, // TODO is this smart?
