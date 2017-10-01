@@ -4,6 +4,7 @@
 
 // stories
 const goWTF = require('../stories/goWTF');
+const listWork = require('../stories/listWork');
 
 // senders
 const sendText = require('../senders/sendText');
@@ -15,7 +16,7 @@ const sendText = require('../senders/sendText');
 module.exports = async function receiveQuickReply(id, payload) {
   // main menu
   if (payload === 'WORK_PAYLOAD') {
-    await sendText(id, 'This is my work!');
+    listWork(id);
     return;
   }
 

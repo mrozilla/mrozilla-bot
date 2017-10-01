@@ -18,7 +18,7 @@ module.exports = async function receiveMessage({ message, sender }) {
     console.log(`Message is: ${JSON.stringify(message)}`);
 
     if (message.quick_reply) {
-      receiveQuickReply(sender.id, message.quick_reploy.payload);
+      receiveQuickReply(sender.id, message.quick_reply.payload);
       return;
     }
 

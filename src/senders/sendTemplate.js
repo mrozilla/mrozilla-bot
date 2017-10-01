@@ -40,13 +40,13 @@ module.exports = async function sendTemplate(
                 fallback_url:         templateItem.url, // TODO is this smart?
               },
             })),
-            buttons: [
-              {
-                type:  'web_url',
-                url:   globalButton.url,
-                title: globalButton.text, // TODO add multiple buttons?
-              },
-            ],
+            // buttons: [
+            //   {
+            //     type:  'web_url',
+            //     url:   globalButton.url,
+            //     title: globalButton.text, // TODO add multiple buttons?
+            //   },
+            // ],
           },
         },
       },
