@@ -23,7 +23,8 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.15.5",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5"
   },
   "engines": {
     "node": "8.6.0"
