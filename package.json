@@ -1,0 +1,31 @@
+{
+  "name": "mrozilla-bot",
+  "version": "1.0.0",
+  "description": "a Messenger version of https://mrozilla.cz",
+  "license": "MIT",
+  "repository": "https://github.com/mrozilla/mrozilla-bot.git",
+  "bugs": "https://github.com/mrozilla/mrozilla-bot/issues",
+  "author": {
+    "name": "Jan",
+    "email": "jan@mrozilla.cz",
+    "url": "mrozilla.cz"
+  },
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "request": "^2.83.0"
+  },
+  "engines": {
+    "node": "8.1.2"
+  }
+}
