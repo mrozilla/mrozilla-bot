@@ -2,6 +2,9 @@
 // import
 // =============================================================================
 
+// content
+const content = require('../content');
+
 // senders
 const sendText = require('../senders/sendText');
 const sendQuickReplies = require('../senders/sendQuickReplies');
@@ -13,16 +16,11 @@ const sendQuickReplies = require('../senders/sendQuickReplies');
 module.exports = async function goWTF(id) {
   await sendText(
     id,
-    "Whoah, I'm not sure what to do with this message just yet 🤔",
+    "Whoah, I'm not sure what to do with this message just yet 😬",
   );
   await sendQuickReplies(
     id,
-    "Why don't you have a look at the basic options?",
-    [
-      { title: 'Work', payload: 'WORK_PAYLOAD' },
-      { title: 'Lab', payload: 'LAB_PAYLOAD' },
-      { title: 'Blog', payload: 'BLOG_PAYLOAD' },
-      { title: 'About', payload: 'ABOUT_PAYLOAD' },
-    ],
+    "Why don't you have a look at some of the common topics?",
+    [...content.mainMenu],
   );
 };
