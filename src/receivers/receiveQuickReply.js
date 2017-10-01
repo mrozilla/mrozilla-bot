@@ -7,9 +7,7 @@ const goWTF = require('../stories/goWTF');
 const listWork = require('../stories/listWork');
 const listLab = require('../stories/listLab');
 const showBlog = require('../stories/showBlog');
-
-// senders
-const sendText = require('../senders/sendText');
+const showAbout = require('../stories/showAbout');
 
 // =============================================================================
 // export
@@ -33,7 +31,7 @@ module.exports = async function receiveQuickReply(id, payload) {
   }
 
   if (payload === 'ABOUT_PAYLOAD') {
-    await sendText(id, 'This is my about!');
+    showAbout(id);
     return;
   }
 

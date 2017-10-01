@@ -123,5 +123,17 @@ module.exports = {
         'https://cdn-images-1.medium.com/max/1200/1*omP1_7NakwihLh-WW-LDZA.png',
     },
   ],
+  about: [
+    "My name is Jan. I'm originally from the Czech Republic, lived in Finland and the United Kingdom, and currently residing in Vienna, Austria.",
+    'I build digital products, mainly web & native applications. Everything from concepts & product exploration, through UX, UI, visual & brand design, all the way to software development.',
+    "I've managed big creative teams (up to 100 people), small product teams, and also have been at the very bottom of an organisation as a junior developer.",
+    "I'm a startup co-founder.",
+    'I do a lot of volunteering and some open-source work.',
+    "I'm a keynote speaker and a workshop faciliator.",
+    'I design in Adobe Photoshop, Adobe Illustrator, Adobe XD, Adobe InDesign, Adobe Lightroom, Adobe Premiere, and Adobe After Effects.',
+    'I code in Javascript: React, Redux, styled-components (css-in-js ftw), Node & Express. I usually edit that code in Nuclide, run it through Prettier and SmartGit, and post it on Github.',
+    'I happen to have M.Sc. and Ing. degrees in European Business and Finance for some reason.',
+    'You can reach to me on Twitter, Medium, Github, Linkedin, or just send me an email.',
+  ],
 };
 /* eslint-enable */
