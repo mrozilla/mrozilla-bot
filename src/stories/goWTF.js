@@ -13,10 +13,10 @@ const sendQuickReplies = require('../senders/sendQuickReplies');
 // export
 // =============================================================================
 
-module.exports = async function goWTF(id) {
+module.exports = async function goWTF(id, topic = 'message') {
   await sendText(
     id,
-    "Whoah, I'm not sure what to do with this message just yet 😬",
+    `Whoah, I'm not sure what to do with this ${topic} just yet 😬`,
   );
   await sendQuickReplies(
     id,

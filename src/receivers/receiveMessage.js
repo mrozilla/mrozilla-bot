@@ -18,12 +18,12 @@ module.exports = async function receiveMessage({ message, sender }) {
     console.log(`Quick reply payload is: ${message.quick_reply.payload}`);
 
     if (message.text) {
-      goWTF(sender.id);
+      goWTF(sender.id, 'text');
       return;
     }
 
     if (message.attachments) {
-      goWTF(sender.id);
+      goWTF(sender.id, 'attachment');
       return;
     }
 
@@ -48,7 +48,7 @@ module.exports = async function receiveMessage({ message, sender }) {
         return;
       }
 
-      goWTF(sender.id);
+      goWTF(sender.id, 'choice');
     }
 
     goWTF(sender.id);
