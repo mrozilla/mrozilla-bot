@@ -2,9 +2,11 @@
 // import
 // =============================================================================
 
-// components
+// stories
 const goWTF = require('../stories/goWTF');
-const sendText = require('../senders/sendText');
+
+// receivers
+const receiveQuickReply = require('../receivers/receiveQuickReply');
 
 // =============================================================================
 // component
@@ -15,30 +17,9 @@ module.exports = async function receiveMessage({ message, sender }) {
     console.log(`Received message from sender.id: ${sender.id}`);
     console.log(`Message is: ${JSON.stringify(message)}`);
 
-    console.log(`Quick reply payload is: ${message.quick_reply.payload}`);
-
     if (message.quick_reply) {
-      if (message.quick_reply.payload === 'WORK_PAYLOAD') {
-        await sendText(sender.id, 'This is my work!');
-        return;
-      }
-
-      if (message.quick_reply.payload === 'LAB_PAYLOAD') {
-        await sendText(sender.id, 'This is my lab!');
-        return;
-      }
-
-      if (message.quick_reply.payload === 'BLOG_PAYLOAD') {
-        await sendText(sender.id, 'This is my blog!');
-        return;
-      }
-
-      if (message.quick_reply.payload === 'ABOUT_PAYLOAD') {
-        await sendText(sender.id, 'This is my about!');
-        return;
-      }
-
-      goWTF(sender.id, 'choice');
+      receiveQuickReply(sender.id, message.quick_reploy.payload);
+      return;
     }
 
     if (message.text) {
