@@ -24,5 +24,5 @@ module.exports = async function listLab(id) {
     'Proof-of-concepts, little tools, silly fooling around. Pushing the limits of the canvas (figuratively & literally).',
   );
   await sendTemplate(id, content.lab);
-  await sendQuickReplies(id, 'Wanna see more?', [...content.mainMenu]);
+  await sendQuickReplies(id, 'Wanna see more? 😏', [...content.mainMenu]);
 };

@@ -16,11 +16,11 @@ const sendQuickReplies = require('../senders/sendQuickReplies');
 module.exports = async function showAbout(id) {
   await sendText(
     id,
-    'These are the details, historical data, and some other information.',
+    'Here we go 🙌 These are the details, historical data, and some other information.',
   );
   await content.about.reduce(
     (promise, item) => promise.then(() => sendText(id, item)),
     Promise.resolve(),
   );
-  await sendQuickReplies(id, 'Wanna see more?', [...content.mainMenu]);
+  await sendQuickReplies(id, 'Wanna see more? 😏', [...content.mainMenu]);
 };

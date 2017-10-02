@@ -16,11 +16,9 @@ const sendQuickReplies = require('../senders/sendQuickReplies');
 module.exports = async function goWTF(id, topic = 'message') {
   await sendText(
     id,
-    `Whoah, I'm not sure what to do with this ${topic} just yet 😬`,
+    `Whoah, not sure what to do with this ${topic} just yet 😬`,
   );
-  await sendQuickReplies(
-    id,
-    "Why don't you have a look at some of the common topics?",
-    [...content.mainMenu],
-  );
+  await sendQuickReplies(id, 'These common topics might help 🤞', [
+    ...content.mainMenu,
+  ]);
 };

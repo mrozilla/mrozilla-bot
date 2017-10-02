@@ -15,8 +15,8 @@ const sendQuickReplies = require('../senders/sendQuickReplies');
 // =============================================================================
 
 module.exports = async function showBlog(id) {
-  await sendText(id, 'I write stuff down every now and then 🖋');
-  await sendText(id, 'You can see all my articles on Medium');
+  await sendText(id, 'Clever 🤓 I write stuff down every now and then');
+  await sendText(id, 'You can see all my articles on Medium 🖋');
   await sendTemplate(id, content.blog);
-  await sendQuickReplies(id, 'Wanna see more?', [...content.mainMenu]);
+  await sendQuickReplies(id, 'Wanna see more? 😏', [...content.mainMenu]);
 };

@@ -21,7 +21,7 @@ module.exports = async function greetUser(id) {
   await sendText(id, `Hey, ${firstName} 👋`);
   await sendText(
     id,
-    'This is a Messenger version of the online home of a digital studio 🤘',
+    'This is a Messenger version of my website—the online home of a one-man digital studio 🤘',
   );
   await sendQuickReplies(id, 'What are you interested in?', [
     ...content.mainMenu,
