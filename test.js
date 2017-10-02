@@ -1,41 +1,45 @@
 // =============================================================================
-// Listen to events
+// Loop asynchronously
 // =============================================================================
 
-process.stdin.resume();
-process.stdin.setEncoding('utf8');
+// helpers
+const content = ['2', '3', '4'];
 
-process.stdin.on('data', text => processMessage(text));
-
-// =============================================================================
-// Process message
-// =============================================================================
-
-async function processMessage(text) {
-  console.log(text.trim() === 'hello');
-  if (text.trim() === 'hello') {
-    await sendMessage('Hello!');
-  } else {
-    await sendMessage("Didn't get that :/");
-  }
-}
-
-// =============================================================================
-// Welcome
-// =============================================================================
-
-function done() {
-  console.log('Bye!');
-  process.exit();
-}
-
-// =============================================================================
-// Send message
-// =============================================================================
-
-function sendMessage(message) {
-  // fake async
-  return new Promise(resolve => {
-    resolve(console.log(message));
+function asyncLog(message) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(console.log(message)); // eslint-disable-line
+    }, Math.floor(Math.random() * 1001));
   });
 }
+
+// =============================================================================
+// Functions
+// =============================================================================
+
+function asyncLoop(array) {
+  // doesn't iterate in sequence
+  // return content.forEach(async (aboutItem) => {
+  //   await asyncLog(aboutItem);
+  // });
+
+  // throws in ESlint, requires async scope
+  // for (const item of content) {
+  //   await asyncLog(item);
+  // }
+
+  return array.reduce(
+    (promise, item) => promise.then(() => asyncLog(item)),
+    Promise.resolve(),
+  );
+}
+
+(async function fakeMessages() {
+  await asyncLog('1');
+  // await asyncLoop(content);
+  await content.reduce(
+    (promise, item) => promise.then(() => asyncLog(item)),
+    Promise.resolve(),
+  );
+  await asyncLog('5');
+}());

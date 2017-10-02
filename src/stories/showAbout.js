@@ -18,8 +18,9 @@ module.exports = async function showAbout(id) {
     id,
     'These are the details, historical data, and some other information.',
   );
-  content.about.forEach(async (aboutItem) => {
-    await sendText(id, aboutItem); // TODO figure out async looping
-  });
+  await content.about.reduce(
+    (promise, item) => promise.then(() => sendText(id, item)),
+    Promise.resolve(),
+  );
   await sendQuickReplies(id, 'Wanna see more?', [...content.mainMenu]);
 };
