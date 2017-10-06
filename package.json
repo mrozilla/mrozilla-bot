@@ -1,10 +1,10 @@
 {
   "name": "mrozilla-bot",
   "version": "1.0.0",
-  "description": "a Messenger version of https://mrozilla.cz",
+  "description": "the Messenger home of a one-man digital studio.",
   "license": "MIT",
-  "repository": "https://github.com/mrozilla/mrozilla-bot.git",
-  "bugs": "https://github.com/mrozilla/mrozilla-bot/issues",
+  "repository": "https://github.com/mrozilla/mrozilla-messenger-bot.git",
+  "bugs": "https://github.com/mrozilla/mrozilla-messenger-bot/issues",
   "author": {
     "name": "Jan",
     "email": "jan@mrozilla.cz",
