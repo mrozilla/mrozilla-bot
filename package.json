@@ -1,0 +1,44 @@
+{
+  "name": "mrozilla-bot",
+  "version": "1.0.0",
+  "description": "the Messenger home of a one-man digital studio.",
+  "license": "MIT",
+  "repository": "https://github.com/mrozilla/mrozilla-messenger-bot.git",
+  "bugs": "https://github.com/mrozilla/mrozilla-messenger-bot/issues",
+  "author": {
+    "name": "Jan",
+    "email": "jan@mrozilla.cz",
+    "url": "mrozilla.cz"
+  },
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "engines": {
+    "node": "8.6.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "max-len": ["error", 80],
+      "key-spacing": [
+        "warn",
+        {
+          "align": "value"
+        }
+      ]
+    }
+  }
+}
