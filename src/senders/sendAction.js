@@ -8,7 +8,7 @@ const request = require('request-promise-native');
 // export
 // =============================================================================
 
-module.exports = async function sendText(id, message) {
+module.exports = async function sendAction(id, action) {
   try {
     const response = await request.post({
       url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -16,10 +16,8 @@ module.exports = async function sendText(id, message) {
         access_token: process.env.PAGE_ACCESS_TOKEN,
       },
       json: {
-        recipient: { id },
-        message:   {
-          text: message,
-        },
+        recipient:     { id },
+        sender_action: action,
       },
     });
     return Promise.resolve(response);

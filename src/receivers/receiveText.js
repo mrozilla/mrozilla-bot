@@ -13,7 +13,7 @@ const showAbout = require('../stories/showAbout');
 // export
 // =============================================================================
 
-module.exports = async function receiveQuickReply(id, text) {
+module.exports = function receiveQuickReply(id, text) {
   // main menu
   if (text.toLowerCase().includes('work')) {
     listWork(id);

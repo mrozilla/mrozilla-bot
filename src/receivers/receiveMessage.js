@@ -9,6 +9,9 @@ const goWTF = require('../stories/goWTF');
 const receiveQuickReply = require('../receivers/receiveQuickReply');
 const receiveText = require('../receivers/receiveText');
 
+// senders
+const sendAction = require('../senders/sendAction');
+
 // =============================================================================
 // component
 // =============================================================================
@@ -19,12 +22,16 @@ module.exports = async function receiveMessage({ message, sender }) {
     console.log(`Message is: ${JSON.stringify(message)}`); // eslint-disable-line
 
     if (message.quick_reply) {
-      receiveQuickReply(sender.id, message.quick_reply.payload);
+      await sendAction(sender.id, 'mark_seen');
+      await sendAction(sender.id, 'typing_on');
+      await receiveQuickReply(sender.id, message.quick_reply.payload);
       return;
     }
 
     if (message.text) {
-      receiveText(sender.id, message.text);
+      await sendAction(sender.id, 'mark_seen');
+      await sendAction(sender.id, 'typing_on');
+      await receiveText(sender.id, message.text);
       return;
     }
 

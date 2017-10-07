@@ -6,6 +6,9 @@
 const greetUser = require('../stories/greetUser');
 const goWTF = require('../stories/goWTF');
 
+// senders
+const sendAction = require('../senders/sendAction');
+
 // =============================================================================
 // component
 // =============================================================================
@@ -15,8 +18,11 @@ module.exports = async function handlePostback({
   postback: { payload },
 }) {
   if (payload === 'GET_STARTED_PAYLOAD') {
-    greetUser(sender.id);
-  } else {
-    goWTF(sender.id);
+    await sendAction(sender.id, 'mark_seen');
+    await sendAction(sender.id, 'typing_on');
+    await greetUser(sender.id);
+    return;
   }
+
+  goWTF(sender.id);
 };
