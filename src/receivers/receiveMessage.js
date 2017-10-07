@@ -22,12 +22,14 @@ module.exports = async function receiveMessage({ message, sender }) {
     console.log(`Message is: ${JSON.stringify(message)}`); // eslint-disable-line
 
     if (message.quick_reply) {
+      await sendAction(sender.id, 'mark_seen');
       await sendAction(sender.id, 'typing_on');
       await receiveQuickReply(sender.id, message.quick_reply.payload);
       return;
     }
 
     if (message.text) {
+      await sendAction(sender.id, 'mark_seen');
       await sendAction(sender.id, 'typing_on');
       await receiveText(sender.id, message.text);
       return;

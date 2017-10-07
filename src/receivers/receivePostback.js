@@ -18,6 +18,7 @@ module.exports = async function handlePostback({
   postback: { payload },
 }) {
   if (payload === 'GET_STARTED_PAYLOAD') {
+    await sendAction(sender.id, 'mark_seen');
     await sendAction(sender.id, 'typing_on');
     await greetUser(sender.id);
     return;
