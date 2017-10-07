@@ -8,18 +8,13 @@ const request = require('request-promise-native');
 // export
 // =============================================================================
 
-module.exports = async function sendText(id, message) {
+module.exports = async function getUserProfile(id) {
   try {
-    const response = await request.post({
-      url: 'https://graph.facebook.com/v2.6/me/messages',
+    const response = await request.get({
+      url: `https://graph.facebook.com/v2.6/${id}`,
       qs:  {
         access_token: process.env.PAGE_ACCESS_TOKEN,
-      },
-      json: {
-        recipient: { id },
-        message:   {
-          text: message,
-        },
+        fields:       'first_name,last_name,profile_pic,locale,timezone,gender',
       },
     });
     return Promise.resolve(response);
