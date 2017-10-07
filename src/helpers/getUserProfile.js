@@ -16,6 +16,7 @@ module.exports = async function getUserProfile(id) {
         access_token: process.env.PAGE_ACCESS_TOKEN,
         fields:       'first_name,last_name,profile_pic,locale,timezone,gender',
       },
+      json: true,
     });
     return Promise.resolve(response);
   } catch (error) {
